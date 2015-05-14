@@ -1,0 +1,24 @@
+socket.io聊天室应用
+说明：socket.io封装了webSocket相关功能，可以无需考虑浏览器差异，只需将该模块绑定到服务器
+功能：
+	服务器端
+		接收浏览器发送的数据，并转发给所有用户；
+		计算在线用户人数，并实时更新在线人数；
+		记录在线昵称，并返回给浏览器
+		解析聊天数据 判断是群聊还是私信
+	客户端
+		能够显示聊天室内人员的来去；
+		发送群聊消息；
+		发送私信，双击昵称，输入框显示send to XXX：，发送完毕后仍旧出于私信状态除非手动删除前缀
+页面构成
+	登陆界面 无需websocket 需要填写昵称提交到服务器 服务器判断改昵称是否已经使用
+	聊天界面 需要websocket 实时更新在线人数，昵称以及聊天记录
+
+相关API：
+	服务器端
+		var io = require('socket.io').listen(server);
+		io.sockets.on connection/disconnect/
+	客户端自动提供库
+		/socket.io/socket.io.js
+		var socket = io.connect('http://127.0.0.1:3000')
+		socket.on message	

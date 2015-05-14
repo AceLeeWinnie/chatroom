@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  div#login
+    h1 Sign Up
+    - if(err)
+      p error:#{err}
+    form(method='post',action='/login')
+      label nickname
+      input(name='nickname',type='text')
+      input(type='submit',value='submit')
+    

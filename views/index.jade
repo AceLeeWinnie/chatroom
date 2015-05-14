@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    meta(charset='utf8')
+    title= chatroom
+    link(rel='stylesheet' type='text/css' href='/style/layout.css')
+  body
+    div#login
+      h1 chatroom-login
+      span#loginError
+      form#login-form(method='post')
+        label(for='nickname-set') nickname
+        input(id='nickname-set' name='nickname-set',type='text',placeholder='please input your nickname')
+        input(type='submit' value='Submit')
+    div#chatroom
+      span#sys-info
+      h1#user
+      section#message-list 
+      section#nickname-list
+        span
+        ul
+      section#massage-send
+        form#message-form
+          textarea#message-send
+          input(type='submit' value='submit')
+    script(src='http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js')
+    script(src='/socket.io/socket.io.js')
+    script(src='/javascript/common.js')
